@@ -106,6 +106,7 @@ proto.getIcons = function () {
 proto.onclick = function (ecModel, api, type) {
     var brushType = this._brushType;
     var brushMode = this._brushMode;
+    var brushId = this._brushId;
 
     if (type === 'clear') {
         // Trigger parallel action firstly
@@ -126,6 +127,7 @@ proto.onclick = function (ecModel, api, type) {
             type: 'takeGlobalCursor',
             key: 'brush',
             brushOption: {
+                brushId: brushId,
                 brushType: type === 'keep'
                     ? brushType
                     : (brushType === type ? false : type),
